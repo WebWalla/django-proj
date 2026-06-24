@@ -1,5 +1,59 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <h1 style="text-align: center; margin-top: 100px;">Kuch service nahi dete hamm chutiyee</h1>
+<h6 style="text-align: center; margin-top: 10px;">Yee lee 2 - 3 services</h6>
+
+<div class="service-box">
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/1.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">User Form</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'userform' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/2.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Form 2</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'form2' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/3.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Submit Form</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'submitform' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+</div>
+<div class="service-box">
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/4.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Calculator</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'calculator' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/5.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Even Odd</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'evenodd' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top " src="{% static '/img/6.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Mark Sheet</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{% url 'marksheet' %}" class="btn btn-primary">Click me</a>
+        </div>
+    </div>
+</div>
 {% endblock content %}

@@ -16,29 +16,17 @@ def services(request):
 
 def userform(request):
     fn = userForm()
-    n1 = int(request.POST['num1'])
-    n2 = int(request.POST['num2'])
-    output = n1 + n2
-    data = {'form': fn,
-            'output' : output                     
-        }
-    # try:
-    #     if request.method == "POST":
-    #         # n1 = int(request.GET['num1'])
-    #         # n2 = int(request.GET['num2'])
-    #         output = 0
-            
-    #         n1 = int(request.POST.get('num1'))
-    #         n2 = int(request.POST.get('num2'))
-    #         print(n1+n2)
-    #         output = n1+n2
-    #         data = {
-    #             "n1" : n1,
-    #             "n2" : n2,
-    #             "output" : output
-    #         }
-    # except Exception:
-    #     print(Exception)
+    output = None  # default, no output on first load
+
+    if request.method == "POST":
+        n1 = int(request.POST['num1'])
+        n2 = int(request.POST['num2'])
+        output = n1 + n2
+
+    data = {
+        'form': fn,
+        'output': output
+    }
     return render(request, 'userform.html', data)
 
 def form2(request):
@@ -66,24 +54,17 @@ def thankyou(request):
     return render(request, 'thankyou.html', {"ans" : ans})
 
 def submitform(request):
-    data = {}
-    output = 0
-    try:
-        n1 = int(request.POST.get('num1'))
-        n2 = int(request.POST.get('num2'))
-        output = n1+n2
-        data = {
-            "n1" : n1,
-            "n2" : n2,
-            "output" : output
-        }
-        
-        return HttpResponse(output)
-
-    except Exception:
-        print(Exception)
-
-
+    if request.method == "POST":
+        try:
+            n1 = int(request.POST.get('num1'))
+            n2 = int(request.POST.get('num2'))
+            output = n1 + n2
+            return HttpResponse(output)
+        except Exception as e:
+            print(e)
+            return HttpResponse("Invalid input", status=400)
+    
+    return HttpResponse("Submit the form first")
 
 def calculator(request):
     data = {}
