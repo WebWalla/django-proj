@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="marksheet-main">
+    <h1><b>Marks Sheet</b></h1>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mt-3">
+                <label for="">Subject 1: </label>
+                <input type="text" name="subject1" value="{{ s1 }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Subject 2: </label>
+                <input type="text" name="subject2" value="{{ s2 }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Subject 3: </label>
+                <input type="text" name="subject3" value="{{ s3 }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Subject 4: </label>
+                <input type="text" name="subject4" value="{{ s4 }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Subject 5: </label>
+                <input type="text" name="subject5" value="{{ s5 }}" class="form-control">
+            </div>
+            <div>
+                <input type="submit" class="form-control pt-2 mt-2">
+            </div>
+            <div>
+                <label for="">Total: </label>
+                <input type="text" value="{{ total }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Percentage: </label>
+                <input type="text" value="{{ percentage }}" class="form-control">
+            </div>
+
+            <div>
+                <label for="">Remarks: </label>
+                <input type="" value="{{ remarks }}" class="form-control">
+            </div>
+        </form>
+        <h6 class="mt-5" style="text-align: center;"><b>This is your score rate</b></h6>
+        <div class="score-rate mt-3">
+            <div class="box-card box-green"></div>
+            <div class="box-card box-lgreen"></div>
+            <div class="box-card box-yello"></div>
+            <div class="box-card box-lred"></div>
+            <div class="box-card box-red"></div>
+        </div>
+        <h6 class="mt-5" style="text-align: center;"><b>You are here</b></h6>
+        
+        <div class="score-rate mt-3">
+            <div class="box-card {% if bgcolor == 'box-green' %} box-green {% endif %}"></div>
+            <div class="box-card {% if bgcolor == 'box-lgreen' %} box-green {% endif %}"></div>
+            <div class="box-card {% if bgcolor == 'box-yello' %} box-yello {% endif %}"></div>
+            <div class="box-card {% if bgcolor == 'box-lred' %} box-lred {% endif %}"></div>
+            <div class="box-card {% if bgcolor == 'box-red' %} box-red {% endif %}"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

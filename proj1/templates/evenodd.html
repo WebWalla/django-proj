@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="evenodd-container">
+    <h1><b>EVEN ODD CHECKER</b></h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="evenodd-data">
+            <div>
+                <label for="" >Enter your Value:</label>
+                <input type="text" name="value" value="{{ value }}" class="form-control">
+                <input type="submit">
+            </div>
+            <div style="display: flex; gap: 20px; padding-top: 20px;">
+                <div class="evenodd-box {% if style == 'green' %} green {% endif %}">
+                    <h1><b>EVEN</b></h1>
+                </div>
+                <div class="evenodd-box {% if style == 'red' %} red {% endif %}">
+                    <h1><b>ODD</b></h1>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

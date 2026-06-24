@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1 style="text-align: center;" class="pt-5"><b>Calculator</b></h1>
+<div style="margin-right: 200px; margin-left: 200px;" class="row d-flex justify-content-center pl-2 pr-2">
+    <div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label >Value1: </label>
+                <input type="text" name="num1" value="{{ n1 }}" class="form-control">
+            </div>
+            <div>
+                <label for="">Operation</label>
+                <select name="ope" class="form-control">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Value2: </label>
+                <input type="text" name="num2" value="{{ n2 }}" class="form-control">
+            </div>
+            <div class="pt-2">
+                <input type="submit" value="Submit" class="btn btn-outline-secondary">
+                <input type="text" value="{{ output }}">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

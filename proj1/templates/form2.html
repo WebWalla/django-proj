@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-div">
+<form method="post" action="{% url 'submitform' %}">
+    {% csrf_token %}
+
+        <div>
+            <label for="">Value1: </label>
+            <input type="text" name="num1" value="{{ n1 }}">
+        </div>
+        <div>
+            <label for="">Value2: </label>
+            <input type="text" name="num2" value="{{ n2 }}">
+        </div>
+        <div>
+            <input type="submit" >
+        </div>
+        <div>
+            <input type="text" value="{{ output }}">
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

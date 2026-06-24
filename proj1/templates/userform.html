@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 style="text-align: center; padding-top: 50px;"><b>User Form</b></h1>
+<br>
+<div class="form-div">
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- <div>
+            <label for="">Value1: </label>
+            <input type="text" name="num1" value="{{ n1 }}">
+        </div>
+        <div>
+            <label for="">Value2: </label>
+            <input type="text" name="num2" value="{{ n2 }}">
+        </div> -->
+        {{ form }}
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <div>
+        <input type="text" value="{{ output }}">
+    </div>
+</form>
+</div>
+
+{% endblock content %}
